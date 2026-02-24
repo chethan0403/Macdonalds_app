@@ -3,8 +3,8 @@ package com.dcl.dto;
 public class Customer {
 	
 	private Integer cid;
-	private Integer cname;
-	private Integer cmail;
+	private String cname;
+	private String cmail;
 	private Integer cphone;
 	private Integer cpassword;
 	public Integer getCid() {
@@ -13,16 +13,16 @@ public class Customer {
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
-	public Integer getCname() {
+	public String getCname() {
 		return cname;
 	}
-	public void setCname(Integer cname) {
+	public void setCname(String cname) {
 		this.cname = cname;
 	}
-	public Integer getCmail() {
+	public String getCmail() {
 		return cmail;
 	}
-	public void setCmail(Integer cmail) {
+	public void setCmail(String cmail) {
 		this.cmail = cmail;
 	}
 	public Integer getCphone() {
@@ -37,5 +37,5 @@ public class Customer {
 	public void setCpassword(Integer cpassword) {
 		this.cpassword = cpassword;
 	}
-	
 }
+	
