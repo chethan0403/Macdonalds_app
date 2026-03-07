@@ -22,4 +22,10 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 
+	@Override
+	public Customer fetchByMailAndPassword(String cmail,Integer cpassword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
