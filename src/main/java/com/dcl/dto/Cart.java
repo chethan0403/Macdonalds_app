@@ -1,11 +1,12 @@
 package com.dcl.dto;
 
 public class Cart {
-	public Integer cartid;
-	public Integer oid;
-	public Integer fid;
-	public Integer price;
-	public Integer qty;
+	private Integer cartid;
+	private Integer oid;
+	private Integer fid;
+	private String fname;
+	private Integer price;
+	private Integer qty;
 	public Integer getCartid() {
 		return cartid;
 	}
@@ -35,6 +36,12 @@ public class Cart {
 	}
 	public void setQty(Integer qty) {
 		this.qty = qty;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 	
 	}

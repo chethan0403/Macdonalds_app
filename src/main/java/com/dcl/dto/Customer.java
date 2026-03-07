@@ -7,6 +7,7 @@ public class Customer {
 	private String cmail;
 	private Integer cphone;
 	private Integer cpassword;
+	
 	public Integer getCid() {
 		return cid;
 	}

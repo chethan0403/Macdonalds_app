@@ -1,12 +1,12 @@
 package com.dcl.dto;
 
 public class Payment {
-	public Integer pid;
-	public Integer oid;
-	public String paymentmethod;
-	public String status;
-	public Double amount;
-	public String paymentDate;
+	private Integer pid;
+	private Integer oid;
+	private String paymentmethod;
+	private String status;
+	private Double amount;
+	private String paymentDate;
 	public Integer getPid() {
 		return pid;
 	}
