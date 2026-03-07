@@ -7,63 +7,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dcl.dto.Cart;
-
 import com.dcl.utility.ConnectionFactory;
+
 
 public class CartDaoImpl implements CartDao {
 
     @Override
     public boolean saveCart(Cart c) {
-        boolean status = false;
+
+        boolean flag = false;
 
         try {
+
             Connection con = ConnectionFactory.getconnection();
 
-            String sql = "insert into cart(fid, qty, price) values(?,?,?)";
+            String query = "insert into cart(oid,fid,fname,price,qty) values(?,?,?,?,?)";
 
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(query);
 
-            ps.setInt(1, c.getFid());
-            ps.setInt(2, c.getQty());
-            ps.setDouble(3, c.getPrice());
+            ps.setInt(1, c.getOid());
+            ps.setInt(2, c.getFid());
+            ps.setString(3, c.getFname());
+            ps.setInt(4, c.getPrice());
+            ps.setInt(5, c.getQty());
 
-            int rows = ps.executeUpdate();
+            int i = ps.executeUpdate();
 
-            if (rows > 0) {
-                status = true;
+            if (i > 0) {
+                flag = true;
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return status;
+        return flag;
     }
 
     @Override
     public boolean deleteCart(Integer cartid) {
 
-        boolean status = false;
+        boolean flag = false;
 
         try {
+
             Connection con =ConnectionFactory.getconnection();
 
-            String sql = "delete from cart where cart_id=?";
+            String query = "delete from cart where cartid=?";
 
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(query);
+
             ps.setInt(1, cartid);
 
-            int rows = ps.executeUpdate();
+            int i = ps.executeUpdate();
 
-            if (rows > 0) {
-                status = true;
+            if (i > 0) {
+                flag = true;
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return status;
+        return flag;
     }
 
     @Override
@@ -72,11 +78,13 @@ public class CartDaoImpl implements CartDao {
         List<Cart> list = new ArrayList<>();
 
         try {
+
             Connection con = ConnectionFactory.getconnection();
 
-            String sql = "select * from cart where cartid=?";
+            String query = "select * from cart where oid=?";
 
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(query);
+
             ps.setInt(1, oid);
 
             ResultSet rs = ps.executeQuery();
@@ -85,10 +93,12 @@ public class CartDaoImpl implements CartDao {
 
                 Cart c = new Cart();
 
-                c.setCartid(rs.getInt("cart_id"));
-                c.setCname(rs.getString("food"));
-                c.setQuantity(rs.getInt("quantity"));
-                c.setPrice(rs.getDouble("price"));
+                c.setCartid(rs.getInt("cartid"));
+                c.setOid(rs.getInt("oid"));
+                c.setFid(rs.getInt("fid"));
+                c.setFname(rs.getString("fname"));
+                c.setPrice(rs.getInt("price"));
+                c.setQty(rs.getInt("qty"));
 
                 list.add(c);
             }
@@ -99,5 +109,4 @@ public class CartDaoImpl implements CartDao {
 
         return list;
     }
-
 }
