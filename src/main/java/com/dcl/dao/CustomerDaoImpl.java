@@ -101,7 +101,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 
-}
+
+
 
 	@Override
 	public Customer fetchByMailAndPassword(String cmail,Integer cpassword) {
