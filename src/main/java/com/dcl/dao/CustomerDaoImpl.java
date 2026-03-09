@@ -100,9 +100,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		return flag;
 	}
 
-<<<<<<< HEAD
+
 }
-=======
+
 	@Override
 	public Customer fetchByMailAndPassword(String cmail,Integer cpassword) {
 		// TODO Auto-generated method stub
@@ -110,4 +110,4 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 }
->>>>>>> 87243c2ad847cd29a587d2ef21a0613154bb7445
+
