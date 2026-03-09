@@ -4,7 +4,7 @@ public class Food {
 	private Integer fid;
 	private String fname;
 	private String description;
-	private String price;
+	private Double price;
 	private Integer stock;
 	private String category;
 	public Integer getFid() {
@@ -25,10 +25,10 @@ public class Food {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public Integer getStock() {
