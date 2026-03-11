@@ -24,8 +24,8 @@ public class CustomerDaoImpl implements CustomerDao {
 
 			ps.setString(1, c.getCname());
 			ps.setString(2, c.getCmail());
-			ps.setInt(3, c.getCphone());
-			ps.setInt(4, c.getCpassword());
+			ps.setLong(3, c.getCphone());
+			ps.setString(4, c.getCpassword());
 
 			int i = ps.executeUpdate();
 
@@ -55,8 +55,8 @@ public class CustomerDaoImpl implements CustomerDao {
 
 			ps.setString(1, c.getCname());
 			ps.setString(2, c.getCmail());
-			ps.setInt(3, c.getCphone());
-			ps.setInt(4, c.getCpassword());
+			ps.setLong(3, c.getCphone());
+			ps.setString(4, c.getCpassword());
 			ps.setInt(5, c.getCid());
 
 			int i = ps.executeUpdate();
