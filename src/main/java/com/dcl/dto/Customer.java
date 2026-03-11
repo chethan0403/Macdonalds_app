@@ -5,8 +5,8 @@ public class Customer {
 	private Integer cid;
 	private String cname;
 	private String cmail;
-	private Integer cphone;
-	private Integer cpassword;
+	private Long cphone;
+	private String cpassword;
 	
 	public Integer getCid() {
 		return cid;
@@ -26,16 +26,16 @@ public class Customer {
 	public void setCmail(String cmail) {
 		this.cmail = cmail;
 	}
-	public Integer getCphone() {
+	public Long getCphone() {
 		return cphone;
 	}
-	public void setCphone(Integer cphone) {
+	public void setCphone(Long cphone) {
 		this.cphone = cphone;
 	}
-	public Integer getCpassword() {
+	public String getCpassword() {
 		return cpassword;
 	}
-	public void setCpassword(Integer cpassword) {
+	public void setCpassword(String cpassword) {
 		this.cpassword = cpassword;
 	}
 }
