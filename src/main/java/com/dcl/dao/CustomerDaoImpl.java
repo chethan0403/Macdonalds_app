@@ -2,6 +2,7 @@ package com.dcl.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.dcl.dto.Customer;
 import com.dcl.utility.ConnectionFactory;
@@ -105,9 +106,39 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
 	@Override
-	public Customer fetchByMailAndPassword(String cmail,Integer cpassword) {
-		// TODO Auto-generated method stub
-		return null;
+		public Customer fetchByMailAndPassword(String cmail, Integer cpassword) {
+
+		Customer c = null;
+
+		try {
+
+			Connection con = ConnectionFactory.getconnection();
+
+			String query = "select * from customer where cmail=? and cpassword=?";
+
+			PreparedStatement ps = con.prepareStatement(query);
+
+			ps.setString(1, cmail);
+			ps.setInt(2, cpassword);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				c = new Customer();
+
+				c.setCid(rs.getInt("cid"));
+				c.setCname(rs.getString("cname"));
+				c.setCmail(rs.getString("cmail"));
+				c.setCphone(rs.getInt("cphone"));
+				c.setCpassword(rs.getInt("cpassword"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return c;
 	}
 
 }
