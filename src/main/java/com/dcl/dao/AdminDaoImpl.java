@@ -55,7 +55,7 @@ public class AdminDaoImpl implements AdminDao {
                 c.setCid(rs.getInt("cid"));
                 c.setCname(rs.getString("cname"));
                 c.setCmail(rs.getString("cmail"));
-                c.setCphone(rs.getInt("cphone"));
+                c.setCphone(rs.getLong("cphone"));
                 list.add(c);
             }
 
