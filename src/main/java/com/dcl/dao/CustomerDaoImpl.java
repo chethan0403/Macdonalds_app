@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import java.sql.SQLException;
+
+
 import com.dcl.dto.Customer;
 import com.dcl.utility.ConnectionFactory;
 
@@ -32,6 +35,9 @@ public class CustomerDaoImpl implements CustomerDao {
 
 			if (i > 0) {
 				flag = true;
+				System.out.println("data get inserted");
+			}else {
+				System.out.println("data not stored");
 			}
 
 		} catch (Exception e) {
@@ -103,40 +109,37 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
 
-
-
-	@Override
-		public Customer fetchByMailAndPassword(String cmail, Integer cpassword) {
-
-		Customer c = null;
-
+	public Customer fetchByMailAndPassword(String cmail,String cpassword) {
+		
+		Connection con=ConnectionFactory.getconnection();
+		
+		String query="select * from customer where cmail=? and cpassword=?";
+		Customer c=null;
+		
 		try {
-
-			Connection con = ConnectionFactory.getconnection();
-
-			String query = "select * from customer where cmail=? and cpassword=?";
-
-			PreparedStatement ps = con.prepareStatement(query);
-
-			ps.setString(1, cmail);
-			ps.setInt(2, cpassword);
-
+			PreparedStatement ps=con.prepareStatement(query);
+			
+			ps.setString(1,cmail);
+			ps.setString(2,cpassword);
+			
 			ResultSet rs = ps.executeQuery();
-
-			if (rs.next()) {
-
-				c = new Customer();
-
+			
+			while(rs.next()) {
+				c=new Customer();
 				c.setCid(rs.getInt("cid"));
 				c.setCname(rs.getString("cname"));
 				c.setCmail(rs.getString("cmail"));
-				c.setCphone(rs.getLong("cphone"));
 				c.setCpassword(rs.getString("cpassword"));
+				c.setCphone(rs.getLong("cphone"));
 			}
-
-		} catch (Exception e) {
+			if(c!=null) {
+				System.out.println("data is present");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 		return c;
 	}
