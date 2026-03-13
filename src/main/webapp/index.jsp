@@ -91,7 +91,7 @@ McDonald's
 Admin
 </a>
 
-<a href="customer.jsp" class="btn nav-btn">
+<a href="customerSignup.jsp" class="btn nav-btn">
 Customer
 </a>
 
@@ -110,7 +110,7 @@ Customer
 
 <p class="lead">Order your favourite burgers and meals online</p>
 
-<a href="customer.jsp" class="btn btn-danger btn-lg mt-3">
+<a href="customerSignup.jsp" class="btn btn-danger btn-lg mt-3">
 Order Now
 </a>
 

@@ -8,6 +8,6 @@ public interface CustomerDao {
 	public boolean updateCustomer(Customer c);
 	public boolean deleteCustomer(Integer cid);
 	
-	public Customer fetchByMailAndPassword(String cmail, Integer cpassword);
+	public Customer fetchByMailAndPassword(String cmail, String cpassword);
 	
 }
